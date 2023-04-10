@@ -1,13 +1,14 @@
 import csv
 import time
 
+
 def optimized(budget, file, list_actions=[]):
     """_Méthodes optimisé pour l'analyse des investissement_
 
     Args:
         budget (_int_): _Budget pouvant être investie_
         file (_text_): _Nom du fichier à lire_
-        list_actions (list, optional): _Liste initailalisée à vide pour le lancement_
+        list_actions (list, optional): _Liste initialisée à vide pour le lancement_
     """
     start_forcebrute = time.time()
     data = read_csv(file)
@@ -22,8 +23,7 @@ def optimized(budget, file, list_actions=[]):
     print(f"La rentabilité sera de {round(sum([i[1] * i[2] for i in list_actions]), 2)} euros",)
     print(f"Le montant investie sera de {round(sum([i[1] for i in list_actions]), 2)} euros",)
     print(f"Avec les actions suivantes : {[i[0] for i in list_actions]}")
-    print(f"La durée du calcul est de {str(round(end_forcebrute - start_forcebrute, 4))} secondes \n\n")
-    
+    print(f"La durée du calcul est de {str(round(end_forcebrute - start_forcebrute, 4))} secondes \n\n")   
 
 def read_csv(file):
     """Lecture d'un fichier csv pour récupérer les données et les triées
@@ -44,9 +44,10 @@ def read_csv(file):
                 tempory = (row[0], float(row[1]), float(row[2]) / 100)
                 data.append(tempory)
         data = sorted(data, key=lambda profit: profit[2], reverse=True )
-        # print(data)
+
         return data
     
 if __name__ == "__main__":
     
-    optimized(500, "dataset1_Python+P7.csv")
+    optimized(500, "dataset2_Python+P7.csv")
+    # optimized(500, "forcebrute.csv")

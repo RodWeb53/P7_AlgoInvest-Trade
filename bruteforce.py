@@ -1,6 +1,7 @@
 import csv
 import time
 
+
 def bruteforce(budget, file):
     """Permet de fixer un budget et d'appeler un fichier
 
@@ -31,14 +32,14 @@ def read_csv(file):
                 tempory = (row[0], int(float(row[1])), float(row[2]) / 100)
                 data.append(tempory)
         return data
-
+    
 def forcebrute_calculation(budget, data, list_actions_selected=[]):
     """_summary_
 
     Args:
         budget (_int_): _Budget pouvant être investie_
         data (_array_): _Données des actions_
-        list_actions_selected (list, optional): _Liste initailalisée à vide pour le lancement_
+        list_actions_selected (list, optional): _Liste initialisée à vide pour le lancement_
 
     Returns:
         _print_: _Information du résultat des calculs_
@@ -58,8 +59,6 @@ def forcebrute_calculation(budget, data, list_actions_selected=[]):
         return f"La rentabilité sera de {round(sum([i[1] * i[2] for i in list_actions_selected]), 2)} euros", \
         f"le budget maximum investi sera de : {sum([i[1] for i in list_actions_selected])} euros, " \
         f"avec les actions suivantes : {[i[0] for i in list_actions_selected]}"
-
-
 
 
 if __name__ == "__main__":
